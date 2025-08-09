@@ -1,0 +1,1788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahul Sharma | Elite Chauffeur Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
+                    display: ['Space Grotesk', 'sans-serif'],
+                },
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        dark: {
+                            900: '#0a0a0a',
+                            800: '#1a1a1a',
+                            700: '#2a2a2a',
+                            600: '#3a3a3a',
+                        },
+                        accent: {
+                            500: '#00f0ff',
+                            600: '#00c4d0',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out forwards',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'gradient-x': 'gradientX 8s ease infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(40px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        gradientX: {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-gradient {
+                @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-500 to-primary-500;
+            }
+            .section-title {
+                @apply text-4xl md:text-5xl font-bold mb-12 text-center font-display relative;
+            }
+            .section-title:after {
+                @apply content-[''] absolute bottom-[-16px] left-1/2 transform translate-x-[-50%] w-24 h-1 bg-gradient-to-r from-accent-500 to-primary-500 rounded-full;
+            }
+            .glass-card {
+                background: rgba(255, 255, 255, 0.05);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .gradient-border {
+                position: relative;
+                background: linear-gradient(#0a0a0a, #0a0a0a) padding-box,
+                              linear-gradient(to right, #00f0ff, #0ea5e9) border-box;
+                border: 1px solid transparent;
+            }
+            .hexagon {
+                clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            }
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3a3a3a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4a4a4a;
+        }
+    </style>
+</head>
+<body class="font-sans bg-dark-900 text-gray-200 antialiased">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-dark-800/90 backdrop-blur-md z-50 border-b border-dark-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-gradient font-display tracking-tight">RAHUL SHARMA</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-300 hover:text-accent-500 transition-all duration-300 font-medium group">
+                        <span class="group-hover:text-accent-500">Home</span>
+                        <span class="block h-0.5 bg-accent-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                    </a>
+                    <a href="#about" class="text-gray-300 hover:text-accent-500 transition-all duration-300 font-medium group">
+                        <span class="group-hover:text-accent-500">About</span>
+                        <span class="block h-0.5 bg-accent-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                    </a>
+                    <a href="#experience" class="text-gray-300 hover:text-accent-500 transition-all duration-300 font-medium group">
+                        <span class="group-hover:text-accent-500">Experience</span>
+                        <span class="block h-0.5 bg-accent-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                    </a>
+                    <a href="#skills" class="text-gray-300 hover:text-accent-500 transition-all duration-300 font-medium group">
+                        <span class="group-hover:text-accent-500">Skills</span>
+                        <span class="block h-0.5 bg-accent-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                    </a>
+                    <a href="#contact" class="text-gray-300 hover:text-accent-500 transition-all duration-300 font-medium group">
+                        <span class="group-hover:text-accent-500">Contact</span>
+                        <span class="block h-0.5 bg-accent-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="mobile-menu-button text-gray-300 hover:text-accent-500 transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-28 pb-20 md:pt-36 md:pb-28 relative overflow-hidden">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-10"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-dark-900/90 via-dark-900/70 to-dark-900/90"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,240,255,0.1)_0%,_transparent_70%)] animate-pulse-slow"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="md:flex items-center justify-between">
+                <div class="md:w-1/2 mb-12 md:mb-0 animate-fade-in">
+                    <div class="flex items-center mb-6">
+                        <div class="h-px w-12 bg-gradient-to-r from-accent-500 to-primary-500 mr-4"></div>
+                        <span class="text-accent-500 font-medium tracking-widest text-sm">ELITE CHAUFFEUR SERVICES</span>
+                    </div>
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white font-display leading-tight">
+                        Precision <span class="text-gradient">Driving</span> Excellence
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-8 max-w-lg leading-relaxed">
+                        With over 8 years of impeccable service, I deliver safe, luxurious, and discreet transportation for executives, celebrities, and discerning clients worldwide.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="px-8 py-4 bg-gradient-to-r from-accent-500 to-primary-500 text-dark-900 font-bold rounded-lg hover:shadow-lg hover:shadow-accent-500/20 transition-all duration-300 transform hover:-translate-y-1 flex items-center">
+                            <span>Book My Services</span>
+                            <i class="fas fa-arrow-right ml-3"></i>
+                        </a>
+                        <a href="#" class="px-8 py-4 border border-gray-700 text-white font-medium rounded-lg hover:bg-dark-700/50 transition-all duration-300 transform hover:-translate-y-1 flex items-center">
+                            <i class="fas fa-download mr-3"></i>
+                            <span>Download Portfolio</span>
+                        </a>
+                    </div>
+                    
+                    <div class="flex items-center mt-12 space-x-8">
+                        <div class="flex items-center">
+                            <div class="flex -space-x-3">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="w-10 h-10 rounded-full border-2 border-dark-800">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Client" class="w-10 h-10 rounded-full border-2 border-dark-800">
+                                <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Client" class="w-10 h-10 rounded-full border-2 border-dark-800">
+                            </div>
+                            <div class="ml-4">
+                                <div class="flex items-center text-yellow-400 mb-1">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="text-sm text-gray-400">Trusted by 50+ clients</p>
+                            </div>
+                        </div>
+                        
+                        <div class="hidden lg:block h-12 w-px bg-gray-700"></div>
+                        
+                        <div class="hidden lg:flex items-center">
+                            <div class="p-3 rounded-full bg-dark-700 mr-4">
+                                <i class="fas fa-car text-accent-500 text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-400">Vehicles Operated</p>
+                                <p class="text-white font-medium">15+ Luxury Models</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 flex justify-center animate-slide-up">
+                    <div class="relative">
+                        <div class="absolute -top-8 -right-8 -z-10">
+                            <div class="hexagon w-64 h-64 bg-gradient-to-br from-accent-500/20 to-primary-500/20 rotate-30 animate-float"></div>
+                        </div>
+                        <div class="glass-card rounded-2xl p-4 border border-gray-800/50 shadow-2xl">
+                            <img src="https://images.unsplash.com/photo-1589156280159-27698a70f29e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Professional Driver" 
+                                 class="rounded-xl w-full max-w-md h-auto border-4 border-dark-700 shadow-lg">
+                        </div>
+                        <div class="absolute -bottom-6 -right-6">
+                            <div class="bg-dark-800 p-4 rounded-xl shadow-lg border border-dark-700 flex items-center">
+                                <div class="bg-gradient-to-br from-accent-500 to-primary-500 p-3 rounded-lg mr-3">
+                                    <i class="fas fa-award text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-400">Certified</p>
+                                    <p class="text-white font-medium">Elite Chauffeur</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Logos -->
+    <section class="py-12 bg-dark-800 border-y border-dark-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="text-center text-gray-400 mb-8 text-sm uppercase tracking-widest">Trusted by leading organizations across sectors</p>
+    <div class="grid grid-cols-2 md:grid-cols-6 gap-8 items-center">
+        <!-- Hotels -->
+        <div class="flex flex-col items-center group">
+            <div class="opacity-70 hover:opacity-100 transition mb-2">
+                <i class="fas fa-hotel text-4xl text-white"></i>
+            </div>
+            <span class="text-gray-400 text-sm opacity-0 group-hover:opacity-100 transition">Luxury Hotels</span>
+        </div>
+        
+        <!-- Corporates -->
+        <div class="flex flex-col items-center group">
+            <div class="opacity-70 hover:opacity-100 transition mb-2">
+                <i class="fas fa-building text-4xl text-white"></i>
+            </div>
+            <span class="text-gray-400 text-sm opacity-0 group-hover:opacity-100 transition">Corporate Firms</span>
+        </div>
+        
+        <!-- Entertainment -->
+        <div class="flex flex-col items-center group">
+            <div class="opacity-70 hover:opacity-100 transition mb-2">
+                <i class="fas fa-film text-4xl text-white"></i>
+            </div>
+            <span class="text-gray-400 text-sm opacity-0 group-hover:opacity-100 transition">Film Industry</span>
+        </div>
+        
+        <!-- Resorts -->
+        <div class="flex flex-col items-center group">
+            <div class="opacity-70 hover:opacity-100 transition mb-2">
+                <i class="fas fa-umbrella-beach text-4xl text-white"></i>
+            </div>
+            <span class="text-gray-400 text-sm opacity-0 group-hover:opacity-100 transition">Resorts</span>
+        </div>
+        
+        <!-- Airlines -->
+        <div class="flex flex-col items-center group">
+            <div class="opacity-70 hover:opacity-100 transition mb-2">
+                <i class="fas fa-plane text-4xl text-white"></i>
+            </div>
+            <span class="text-gray-400 text-sm opacity-0 group-hover:opacity-100 transition">Airport Services</span>
+        </div>
+        
+        <!-- Spiritual Centers -->
+        <div class="flex flex-col items-center group">
+            <div class="opacity-70 hover:opacity-100 transition mb-2">
+                <i class="fas fa-place-of-worship text-4xl text-white"></i>
+            </div>
+            <span class="text-gray-400 text-sm opacity-0 group-hover:opacity-100 transition">Spiritual Centers</span>
+        </div>
+    </div>
+</div>
+        </div>
+    </section>
+
+    <!-- About Me -->
+    <section id="about" class="py-20 bg-dark-900 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary-500/5 to-transparent -z-10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-white animate-fade-in">
+                    About <span class="text-gradient">Me</span>
+                </h2>
+            </div>
+            
+            <div class="md:flex items-center gap-12">
+                <div class="md:w-2/5 mb-12 md:mb-0 flex justify-center animate-slide-up">
+                    <div class="relative">
+                        <div class="absolute -top-6 -left-6 -z-10 w-full h-full border-2 border-accent-500/30 rounded-2xl"></div>
+                        <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                             alt="Rahul Sharma" 
+                             class="rounded-2xl w-full max-w-md border-4 border-dark-700 shadow-xl">
+                        <div class="absolute -bottom-6 -right-6 bg-dark-800 p-4 rounded-xl shadow-lg border border-dark-700">
+                            <div class="flex items-center">
+                                <div class="bg-gradient-to-br from-accent-500 to-primary-500 p-2 rounded-lg mr-3">
+                                    <!-- <i class="fas fa-road text-white"></i> -->
+                                </div>
+                                <div class="flex items-center">
+    <div class="bg-gradient-to-br from-accent-500 to-primary-500 p-2 rounded-lg mr-3">
+        <i class="fas fa-road text-white"></i>
+    </div>
+    <div>
+        <p class="text-white font-bold text-xl">
+            <span id="kilometer-counter">0</span>+
+        </p>
+        <p class="text-gray-400 text-sm">Kilometers Driven</p>
+    </div>
+</div>
+
+<script>
+    // Kilometer counter animation
+    document.addEventListener('DOMContentLoaded', function() {
+        const counter = document.getElementById('kilometer-counter');
+        const target = 500000;
+        const duration = 3000; // 3 seconds
+        const increment = target / (duration / 16); // 60fps
+        
+        let current = 0;
+        
+        const animateCounter = () => {
+            current += increment;
+            if (current < target) {
+                counter.textContent = Math.floor(current).toLocaleString();
+                requestAnimationFrame(animateCounter);
+            } else {
+                counter.textContent = target.toLocaleString();
+            }
+        };
+        
+        // Start animation when element is in viewport
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                animateCounter();
+                observer.unobserve(counter.parentElement.parentElement);
+            }
+        }, { threshold: 0.5 });
+        
+        observer.observe(counter.parentElement.parentElement);
+    });
+</script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-3/5 animate-fade-in">
+                    <div class="flex items-center mb-6">
+                        <div class="h-px w-12 bg-gradient-to-r from-accent-500 to-primary-500 mr-4"></div>
+                        <span class="text-accent-500 font-medium tracking-widest text-sm">PROFESSIONAL PROFILE</span>
+                    </div>
+                    
+                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-6 font-display">
+                        Discretion, Safety & <span class="text-gradient">Professionalism</span>
+                    </h3>
+                    
+                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                        As a certified elite chauffeur, I specialize in providing seamless, secure, and confidential transportation services for high-profile clients, corporate executives, and luxury travelers. My approach combines technical driving expertise with exceptional client service.
+                    </p>
+                    
+                    <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                        With extensive training in defensive driving, security protocols, and VIP protection, I ensure every journey is not just comfortable but also strategically planned for efficiency and discretion.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="gradient-border p-6 rounded-xl">
+                            <div class="text-accent-500 text-2xl mb-4">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h4 class="text-white font-bold mb-2">Security Focused</h4>
+                            <p class="text-gray-400 text-sm">Trained in defensive driving and threat assessment</p>
+                        </div>
+                        
+                        <div class="gradient-border p-6 rounded-xl">
+                            <div class="text-accent-500 text-2xl mb-4">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h4 class="text-white font-bold mb-2">Punctuality</h4>
+                            <p class="text-gray-400 text-sm">99.8% on-time arrival record</p>
+                        </div>
+                        
+                        <div class="gradient-border p-6 rounded-xl">
+                            <div class="text-accent-500 text-2xl mb-4">
+                                <i class="fas fa-user-secret"></i>
+                            </div>
+                            <h4 class="text-white font-bold mb-2">Discretion</h4>
+                            <p class="text-gray-400 text-sm">NDA-compliant confidential service</p>
+                        </div>
+                        
+                        <div class="gradient-border p-6 rounded-xl">
+                            <div class="text-accent-500 text-2xl mb-4">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h4 class="text-white font-bold mb-2">Global Experience</h4>
+                            <p class="text-gray-400 text-sm">Familiar with international protocols</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="py-20 bg-dark-800 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-white animate-fade-in">
+                    Professional <span class="text-gradient">Journey</span>
+                </h2>
+                <p class="text-gray-400 max-w-3xl mx-auto mt-6 text-lg">
+                    My career path reflects continuous growth and specialization in high-end transportation services.
+                </p>
+            </div>
+            
+            <div class="relative">
+                <!-- Timeline line -->
+                <div class="hidden lg:block absolute left-1/2 h-full w-0.5 bg-gradient-to-b from-dark-600 via-accent-500 to-dark-600 transform -translate-x-1/2"></div>
+                
+                <!-- Timeline items -->
+                <div class="space-y-16 lg:space-y-24">
+                    <!-- Experience 1 -->
+                    <div class="relative group">
+                        <!-- Timeline dot -->
+                        <div class="hidden lg:flex absolute left-1/2 w-5 h-5 bg-dark-800 border-4 border-accent-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-10 group-hover:scale-125 group-hover:shadow-lg transition-all duration-300"></div>
+                        
+                        <div class="lg:flex justify-between gap-12">
+                            <div class="lg:w-5/12 mb-12 lg:mb-0 lg:pr-12 animate-slide-up">
+                                <div class="glass-card p-8 rounded-2xl border border-dark-700 shadow-xl hover:shadow-accent-500/10 transition-all duration-500 group-hover:-translate-y-2">
+                                    <div class="flex items-center mb-6">
+                                        <div class="bg-gradient-to-br from-accent-500 to-primary-500 p-3 rounded-xl shadow-inner mr-5">
+                                            <i class="fas fa-briefcase text-white text-2xl"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-2xl font-bold text-white mb-1">Senior Executive Chauffeur</h3>
+                                            <p class="text-accent-500 font-medium">Elite Global Concierge</p>
+                                        </div>
+                                    </div>
+                                    <div class="mb-6">
+                                        <span class="inline-block bg-dark-700 text-accent-500 px-4 py-2 rounded-full text-sm font-semibold shadow-sm">2021 - Present</span>
+                                    </div>
+                                    <ul class="space-y-4">
+                                        <li class="flex">
+                                            <div class="flex-shrink-0 mt-1">
+                                                <div class="flex items-center justify-center w-6 h-6 rounded-full bg-accent-500/10 text-accent-500">
+                                                    <i class="fas fa-check text-xs"></i>
+                                                </div>
+                                            </div>
+                                            <p class="ml-3 text-gray-300">Provided discreet transportation for Fortune 500 executives and high-net-worth individuals</p>
+                                        </li>
+                                        <li class="flex">
+                                            <div class="flex-shrink-0 mt-1">
+                                                <div class="flex items-center justify-center w-6 h-6 rounded-full bg-accent-500/10 text-accent-500">
+                                                    <i class="fas fa-check text-xs"></i>
+                                                </div>
+                                            </div>
+                                            <p class="ml-3 text-gray-300">Operated armored and luxury vehicles with advanced security features</p>
+                                        </li>
+                                        <li class="flex">
+                                            <div class="flex-shrink-0 mt-1">
+                                                <div class="flex items-center justify-center w-6 h-6 rounded-full bg-accent-500/10 text-accent-500">
+                                                    <i class="fas fa-check text-xs"></i>
+                                                </div>
+                                            </div>
+                                            <p class="ml-3 text-gray-300">Coordinated with security details for protected movements</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:w-5/12 lg:pl-12 animate-slide-up">
+                                <div class="glass-card p-8 rounded-2xl border border-dark-700 shadow-xl hover:shadow-accent-500/10 transition-all duration-500 group-hover:-translate-y-2">
+                                    <h4 class="text-lg font-semibold text-accent-500 mb-4">Key Achievements</h4>
+                                    <ul class="space-y-4">
+                                        <li class="flex items-start">
+                                            <span class="flex-shrink-0 bg-accent-500/10 text-accent-500 rounded-full p-2 mr-4">
+                                                <i class="fas fa-trophy"></i>
+                                            </span>
+                                            <span class="text-gray-300">Certified by International Protective Security Board</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="flex-shrink-0 bg-accent-500/10 text-accent-500 rounded-full p-2 mr-4">
+                                                <i class="fas fa-medal"></i>
+                                            </span>
+                                            <span class="text-gray-300">Zero security incidents across 850+ high-risk transfers</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="flex-shrink-0 bg-accent-500/10 text-accent-500 rounded-full p-2 mr-4">
+                                                <i class="fas fa-star"></i>
+                                            </span>
+                                            <span class="text-gray-300">Top-rated chauffeur for VIP client satisfaction (4.98/5)</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience 2 -->
+                    <div class="relative group">
+                        <!-- Timeline dot -->
+                        <div class="hidden lg:flex absolute left-1/2 w-5 h-5 bg-dark-800 border-4 border-primary-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-10 group-hover:scale-125 group-hover:shadow-lg transition-all duration-300"></div>
+                        
+                        <div class="lg:flex justify-between gap-12 flex-row-reverse">
+                            <div class="lg:w-5/12 mb-12 lg:mb-0 lg:pl-12 animate-slide-up">
+                                <div class="glass-card p-8 rounded-2xl border border-dark-700 shadow-xl hover:shadow-primary-500/10 transition-all duration-500 group-hover:-translate-y-2">
+                                    <div class="flex items-center mb-6">
+                                        <div class="bg-gradient-to-br from-primary-500 to-accent-500 p-3 rounded-xl shadow-inner mr-5">
+                                            <i class="fas fa-chess-king text-white text-2xl"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-2xl font-bold text-white mb-1">Royal Family Chauffeur</h3>
+                                            <p class="text-primary-500 font-medium">Private Contract</p>
+                                        </div>
+                                    </div>
+                                    <div class="mb-6">
+                                        <span class="inline-block bg-dark-700 text-primary-500 px-4 py-2 rounded-full text-sm font-semibold shadow-sm">2018 - 2021</span>
+                                    </div>
+                                    <ul class="space-y-4">
+                                        <li class="flex">
+                                            <div class="flex-shrink-0 mt-1">
+                                                <div class="flex items-center justify-center w-6 h-6 rounded-full bg-primary-500/10 text-primary-500">
+                                                    <i class="fas fa-check text-xs"></i>
+                                                </div>
+                                            </div>
+                                            <p class="ml-3 text-gray-300">Provided discreet transportation for royal family members and dignitaries</p>
+                                        </li>
+                                        <li class="flex">
+                                            <div class="flex-shrink-0 mt-1">
+                                                <div class="flex items-center justify-center w-6 h-6 rounded-full bg-primary-500/10 text-primary-500">
+                                                    <i class="fas fa-check text-xs"></i>
+                                                </div>
+                                            </div>
+                                            <p class="ml-3 text-gray-300">Managed fleet of luxury and classic vehicles with strict protocols</p>
+                                        </li>
+                                        <li class="flex">
+                                            <div class="flex-shrink-0 mt-1">
+                                                <div class="flex items-center justify-center w-6 h-6 rounded-full bg-primary-500/10 text-primary-500">
+                                                    <i class="fas fa-check text-xs"></i>
+                                                </div>
+                                            </div>
+                                            <p class="ml-3 text-gray-300">Coordinated with security teams for protected movements</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:w-5/12 lg:pr-12 animate-slide-up">
+                                <div class="glass-card p-8 rounded-2xl border border-dark-700 shadow-xl hover:shadow-primary-500/10 transition-all duration-500 group-hover:-translate-y-2">
+                                    <h4 class="text-lg font-semibold text-primary-500 mb-4">Specialized Training</h4>
+                                    <ul class="space-y-4">
+                                        <li class="flex items-start">
+                                            <span class="flex-shrink-0 bg-primary-500/10 text-primary-500 rounded-full p-2 mr-4">
+                                                <i class="fas fa-shield-virus"></i>
+                                            </span>
+                                            <span class="text-gray-300">Advanced defensive and evasive driving techniques</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="flex-shrink-0 bg-primary-500/10 text-primary-500 rounded-full p-2 mr-4">
+                                                <i class="fas fa-user-secret"></i>
+                                            </span>
+                                            <span class="text-gray-300">Counter-surveillance and anti-tracking protocols</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="flex-shrink-0 bg-primary-500/10 text-primary-500 rounded-full p-2 mr-4">
+                                                <i class="fas fa-first-aid"></i>
+                                            </span>
+                                            <span class="text-gray-300">Tactical emergency medical training (TEMS)</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience 3 -->
+                    <div class="relative group">
+                        <!-- Timeline dot -->
+                        <div class="hidden lg:flex absolute left-1/2 w-5 h-5 bg-dark-800 border-4 border-accent-500 rounded-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-10 group-hover:scale-125 group-hover:shadow-lg transition-all duration-300"></div>
+                        
+                        <div class="lg:flex justify-between gap-12">
+                            <div class="lg:w-5/12 mb-12 lg:mb-0 lg:pr-12 animate-slide-up">
+                                <div class="glass-card p-8 rounded-2xl border border-dark-700 shadow-xl hover:shadow-accent-500/10 transition-all duration-500 group-hover:-translate-y-2">
+                                    <div class="flex items-center mb-6">
+                                        <div class="bg-gradient-to-br from-accent-500 to-primary-500 p-3 rounded-xl shadow-inner mr-5">
+                                            <i class="fas fa-car text-white text-2xl"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-2xl font-bold text-white mb-1">Luxury Fleet Driver</h3>
+                                            <p class="text-accent-500 font-medium">Premier Transportation Group</p>
+                                        </div>
+                                    </div>
+                                    <div class="mb-6">
+                                        <span class="inline-block bg-dark-700 text-accent-500 px-4 py-2 rounded-full text-sm font-semibold shadow-sm">2015 - 2018</span>
+                                    </div>
+                                    <ul class="space-y-4">
+                                        <li class="flex">
+                                            <div class="flex-shrink-0 mt-1">
+                                                <div class="flex items-center justify-center w-6 h-6 rounded-full bg-accent-500/10 text-accent-500">
+                                                    <i class="fas fa-check text-xs"></i>
+                                                </div>
+                                            </div>
+                                            <p class="ml-3 text-gray-300">Operated high-end vehicles for corporate accounts and special events</p>
+                                        </li>
+                                        <li class="flex">
+                                            <div class="flex-shrink-0 mt-1">
+                                                <div class="flex items-center justify-center w-6 h-6 rounded-full bg-accent-500/10 text-accent-500">
+                                                    <i class="fas fa-check text-xs"></i>
+                                                </div>
+                                            </div>
+                                            <p class="ml-3 text-gray-300">Maintained 4.9/5 average rating across 1,200+ assignments</p>
+                                        </li>
+                                        <li class="flex">
+                                            <div class="flex-shrink-0 mt-1">
+                                                <div class="flex items-center justify-center w-6 h-6 rounded-full bg-accent-500/10 text-accent-500">
+                                                    <i class="fas fa-check text-xs"></i>
+                                                </div>
+                                            </div>
+                                            <p class="ml-3 text-gray-300">Trained in luxury hospitality and concierge services</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="lg:w-5/12 lg:pl-12 animate-slide-up">
+                                <div class="glass-card p-8 rounded-2xl border border-dark-700 shadow-xl hover:shadow-accent-500/10 transition-all duration-500 group-hover:-translate-y-2">
+                                    <h4 class="text-lg font-semibold text-accent-500 mb-4">Vehicle Specialization</h4>
+                                    <ul class="space-y-4">
+                                        <li class="flex items-start">
+                                            <span class="flex-shrink-0 bg-accent-500/10 text-accent-500 rounded-full p-2 mr-4">
+                                                <i class="fas fa-car-side"></i>
+                                            </span>
+                                            <span class="text-gray-300">Mercedes-Maybach S-Class (Armored)</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="flex-shrink-0 bg-accent-500/10 text-accent-500 rounded-full p-2 mr-4">
+                                                <i class="fas fa-car-alt"></i>
+                                            </span>
+                                            <span class="text-gray-300">Rolls-Royce Phantom (Extended Wheelbase)</span>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <span class="flex-shrink-0 bg-accent-500/10 text-accent-500 rounded-full p-2 mr-4">
+                                                <i class="fas fa-shuttle-van"></i>
+                                            </span>
+                                            <span class="text-gray-300">Cadillac Escalade ESV (Executive Protection)</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="py-20 bg-dark-900 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,240,255,0.05)_0%,_transparent_70%)] -z-10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-white animate-fade-in">
+                    Professional <span class="text-gradient">Capabilities</span>
+                </h2>
+                <p class="text-gray-400 max-w-3xl mx-auto mt-6 text-lg">
+                    A comprehensive skill set developed through specialized training and real-world experience.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Skill Category 1 -->
+                <div class="glass-card p-8 rounded-2xl border border-dark-700 hover:border-accent-500/30 transition-all duration-300 animate-slide-up">
+                    <div class="text-accent-500 text-4xl mb-6">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Security & Protection</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1 mr-4 text-accent-500">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <span class="text-gray-300">Advanced defensive driving techniques</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1 mr-4 text-accent-500">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <span class="text-gray-300">Armored vehicle operation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1 mr-4 text-accent-500">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <span class="text-gray-300">Route planning & threat assessment</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1 mr-4 text-accent-500">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <span class="text-gray-300">Counter-surveillance measures</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1 mr-4 text-accent-500">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <span class="text-gray-300">Emergency response protocols</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Skill Category 2 -->
+                <div class="glass-card p-8 rounded-2xl border border-dark-700 hover:border-primary-500/30 transition-all duration-300 animate-slide-up">
+                    <div class="text-primary-500 text-4xl mb-6">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Client Services</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1 mr-4 text-primary-500">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <span class="text-gray-300">Discretion & confidentiality</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1 mr-4 text-primary-500">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <span class="text-gray-300">Luxury hospitality training</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1 mr-4 text-primary-500">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <span class="text-gray-300">Multilingual communication</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1 mr-4 text-primary-500">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <span class="text-gray-300">Protocol awareness</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1 mr-4 text-primary-500">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <span class="text-gray-300">Concierge-level service</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Skill Category 3 -->
+                <div class="glass-card p-8 rounded-2xl border border-dark-700 hover:border-accent-500/30 transition-all duration-300 animate-slide-up">
+                    <div class="text-accent-500 text-4xl mb-6">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Technical Expertise</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1 mr-4 text-accent-500">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <span class="text-gray-300">Advanced vehicle diagnostics</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1 mr-4 text-accent-500">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <span class="text-gray-300">Security system operation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1 mr-4 text-accent-500">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <span class="text-gray-300">Navigation & tracking systems</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1 mr-4 text-accent-500">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <span class="text-gray-300">Fuel efficiency optimization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1 mr-4 text-accent-500">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <span class="text-gray-300">Preventive maintenance</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Skill Meter 1 -->
+                <div class="glass-card p-6 rounded-xl border border-dark-700 animate-fade-in">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-gray-300 font-medium">Defensive Driving</span>
+                        <span class="text-accent-500">100%</span>
+                    </div>
+                    <div class="w-full bg-dark-700 rounded-full h-2">
+                        <div class="bg-gradient-to-r from-accent-500 to-primary-500 h-2 rounded-full" style="width: 100%"></div>
+                    </div>
+                </div>
+                
+                <!-- Skill Meter 2 -->
+                <div class="glass-card p-6 rounded-xl border border-dark-700 animate-fade-in">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-gray-300 font-medium">Route Planning</span>
+                        <span class="text-accent-500">98%</span>
+                    </div>
+                    <div class="w-full bg-dark-700 rounded-full h-2">
+                        <div class="bg-gradient-to-r from-accent-500 to-primary-500 h-2 rounded-full" style="width: 98%"></div>
+                    </div>
+                </div>
+                
+                <!-- Skill Meter 3 -->
+                <div class="glass-card p-6 rounded-xl border border-dark-700 animate-fade-in">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-gray-300 font-medium">Vehicle Handling</span>
+                        <span class="text-accent-500">95%</span>
+                    </div>
+                    <div class="w-full bg-dark-700 rounded-full h-2">
+                        <div class="bg-gradient-to-r from-accent-500 to-primary-500 h-2 rounded-full" style="width: 95%"></div>
+                    </div>
+                </div>
+                
+                <!-- Skill Meter 4 -->
+                <div class="glass-card p-6 rounded-xl border border-dark-700 animate-fade-in">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-gray-300 font-medium">Client Service</span>
+                        <span class="text-accent-500">97%</span>
+                    </div>
+                    <div class="w-full bg-dark-700 rounded-full h-2">
+                        <div class="bg-gradient-to-r from-accent-500 to-primary-500 h-2 rounded-full" style="width: 97%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Vehicle Expertise Section -->
+<section id="vehicles" class="py-20 bg-dark-800 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-10"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="text-center mb-16">
+            <h2 class="section-title text-white animate-fade-in">
+                Vehicle <span class="text-gradient">Expertise</span>
+            </h2>
+            <p class="text-gray-400 max-w-3xl mx-auto mt-6 text-lg">
+                I'm experienced with 25+ popular Indian vehicles from compact cars to luxury SUVs
+            </p>
+        </div>
+
+        <!-- Swiper Container -->
+        <div class="swiper vehicle-swiper relative">
+            <div class="swiper-wrapper pb-12">
+                <!-- Toyota Innova Crysta -->
+                <div class="swiper-slide">
+                    <div class="glass-card rounded-2xl overflow-hidden border border-dark-700 hover:border-accent-500/30 transition-all duration-300 h-full">
+                        <div class="h-48 bg-gradient-to-br from-dark-700 to-dark-800 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1638795270371-921519a833d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Toyota Innova Crysta" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute bottom-4 right-4 bg-accent-500/90 text-dark-900 px-3 py-1 rounded-full text-xs font-bold">
+                                ★★★★★ 5/5
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Toyota Innova Crysta</h3>
+                            <p class="text-gray-300 text-sm mb-4">Perfect blend of comfort and practicality for family and corporate travel</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-accent-500/10 text-accent-500 text-xs px-3 py-1 rounded-full">7 Seater</span>
+                                <span class="bg-accent-500/10 text-accent-500 text-xs px-3 py-1 rounded-full">Diesel</span>
+                                <span class="bg-accent-500/10 text-accent-500 text-xs px-3 py-1 rounded-full">Automatic</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Maruti Suzuki Swift Dzire -->
+                <div class="swiper-slide">
+                    <div class="glass-card rounded-2xl overflow-hidden border border-dark-700 hover:border-accent-500/30 transition-all duration-300 h-full">
+                        <div class="h-48 bg-gradient-to-br from-dark-700 to-dark-800 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Maruti Suzuki Swift Dzire" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute bottom-4 right-4 bg-accent-500/90 text-dark-900 px-3 py-1 rounded-full text-xs font-bold">
+                                ★★★★★ 5/5
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Maruti Suzuki Swift Dzire</h3>
+                            <p class="text-gray-300 text-sm mb-4">Compact sedan perfect for city driving with excellent fuel efficiency</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-accent-500/10 text-accent-500 text-xs px-3 py-1 rounded-full">Compact</span>
+                                <span class="bg-accent-500/10 text-accent-500 text-xs px-3 py-1 rounded-full">Petrol</span>
+                                <span class="bg-accent-500/10 text-accent-500 text-xs px-3 py-1 rounded-full">Manual</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hyundai Creta -->
+                <div class="swiper-slide">
+                    <div class="glass-card rounded-2xl overflow-hidden border border-dark-700 hover:border-accent-500/30 transition-all duration-300 h-full">
+                        <div class="h-48 bg-gradient-to-br from-dark-700 to-dark-800 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1636466497217-26a8b4b8df3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Hyundai Creta" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute bottom-4 right-4 bg-accent-500/90 text-dark-900 px-3 py-1 rounded-full text-xs font-bold">
+                                ★★★★☆ 4.5/5
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Hyundai Creta</h3>
+                            <p class="text-gray-300 text-sm mb-4">Popular SUV with premium features and comfortable ride quality</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">SUV</span>
+                                <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Petrol/Diesel</span>
+                                <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Automatic</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kia Seltos -->
+                <div class="swiper-slide">
+                    <div class="glass-card rounded-2xl overflow-hidden border border-dark-700 hover:border-accent-500/30 transition-all duration-300 h-full">
+                        <div class="h-48 bg-gradient-to-br from-dark-700 to-dark-800 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1621786033495-17a248c1ccef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Kia Seltos" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute bottom-4 right-4 bg-accent-500/90 text-dark-900 px-3 py-1 rounded-full text-xs font-bold">
+                                ★★★★☆ 4.5/5
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Kia Seltos</h3>
+                            <p class="text-gray-300 text-sm mb-4">Feature-packed SUV with bold design and advanced technology</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-accent-500/10 text-accent-500 text-xs px-3 py-1 rounded-full">SUV</span>
+                                <span class="bg-accent-500/10 text-accent-500 text-xs px-3 py-1 rounded-full">Turbo</span>
+                                <span class="bg-accent-500/10 text-accent-500 text-xs px-3 py-1 rounded-full">Automatic</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tata Harrier -->
+                <div class="swiper-slide">
+                    <div class="glass-card rounded-2xl overflow-hidden border border-dark-700 hover:border-accent-500/30 transition-all duration-300 h-full">
+                        <div class="h-48 bg-gradient-to-br from-dark-700 to-dark-800 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1638795270371-921519a833d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Tata Harrier" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute bottom-4 right-4 bg-accent-500/90 text-dark-900 px-3 py-1 rounded-full text-xs font-bold">
+                                ★★★★☆ 4.3/5
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Tata Harrier</h3>
+                            <p class="text-gray-300 text-sm mb-4">Premium Indian SUV with rugged design and powerful performance</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">SUV</span>
+                                <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Diesel</span>
+                                <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Automatic</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mahindra Scorpio -->
+                <div class="swiper-slide">
+                    <div class="glass-card rounded-2xl overflow-hidden border border-dark-700 hover:border-accent-500/30 transition-all duration-300 h-full">
+                        <div class="h-48 bg-gradient-to-br from-dark-700 to-dark-800 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1638795270371-921519a833d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Mahindra Scorpio" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute bottom-4 right-4 bg-accent-500/90 text-dark-900 px-3 py-1 rounded-full text-xs font-bold">
+                                ★★★★☆ 4.2/5
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Mahindra Scorpio</h3>
+                            <p class="text-gray-300 text-sm mb-4">Iconic Indian SUV with rugged capabilities and spacious interior</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-accent-500/10 text-accent-500 text-xs px-3 py-1 rounded-full">SUV</span>
+                                <span class="bg-accent-500/10 text-accent-500 text-xs px-3 py-1 rounded-full">Diesel</span>
+                                <span class="bg-accent-500/10 text-accent-500 text-xs px-3 py-1 rounded-full">Manual</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Honda City -->
+                <div class="swiper-slide">
+                    <div class="glass-card rounded-2xl overflow-hidden border border-dark-700 hover:border-accent-500/30 transition-all duration-300 h-full">
+                        <div class="h-48 bg-gradient-to-br from-dark-700 to-dark-800 relative overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1638795270371-921519a833d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Honda City" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute bottom-4 right-4 bg-accent-500/90 text-dark-900 px-3 py-1 rounded-full text-xs font-bold">
+                                ★★★★★ 4.8/5
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Honda City</h3>
+                            <p class="text-gray-300 text-sm mb-4">Premium sedan known for reliability and refined driving experience</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Sedan</span>
+                                <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Petrol</span>
+                                <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">CVT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add 18 more Indian vehicles following the same pattern -->
+                <!-- Toyota Fortuner, MG Hector, Skoda Octavia, Volkswagen Tiguan, etc. -->
+
+                <!-- Swiper wrapper start (make sure you have .swiper-wrapper around these .swiper-slide items) -->
+
+<!-- Toyota Fortuner -->
+<div class="swiper-slide">
+  <div class="glass-card rounded-2xl overflow-hidden border border-dark-700 hover:border-accent-500/30 transition-all duration-300 h-full">
+    <div class="h-48 bg-gradient-to-br from-dark-700 to-dark-800 relative overflow-hidden">
+      <img src="https://source.unsplash.com/1600x900/?Toyota%20Fortuner,fortuner,suv" alt="Toyota Fortuner" class="w-full h-full object-cover">
+      <div class="absolute bottom-4 right-4 bg-accent-500/90 text-dark-900 px-3 py-1 rounded-full text-xs font-bold">★★★★☆ 4.5/5</div>
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-white mb-2">Toyota Fortuner</h3>
+      <p class="text-gray-300 text-sm mb-4">Full-size SUV popular for robust build & long-distance comfort</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">SUV</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Diesel</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Automatic</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MG Hector -->
+<div class="swiper-slide">
+  <div class="glass-card rounded-2xl overflow-hidden border border-dark-700 hover:border-accent-500/30 transition-all duration-300 h-full">
+    <div class="h-48 bg-gradient-to-br from-dark-700 to-dark-800 relative overflow-hidden">
+      <img src="https://source.unsplash.com/1600x900/?MG%20Hector,mg%20hector,suv" alt="MG Hector" class="w-full h-full object-cover">
+      <div class="absolute bottom-4 right-4 bg-accent-500/90 text-dark-900 px-3 py-1 rounded-full text-xs font-bold">★★★★☆ 4.4/5</div>
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-white mb-2">MG Hector</h3>
+      <p class="text-gray-300 text-sm mb-4">Feature-rich mid-size SUV with big infotainment and ride comfort</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">SUV</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Petrol</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Automatic</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Skoda Octavia -->
+<div class="swiper-slide">
+  <div class="glass-card rounded-2xl overflow-hidden border border-dark-700 hover:border-accent-500/30 transition-all duration-300 h-full">
+    <div class="h-48 bg-gradient-to-br from-dark-700 to-dark-800 relative overflow-hidden">
+      <img src="https://source.unsplash.com/1600x900/?Skoda%20Octavia,octavia,skoda" alt="Skoda Octavia" class="w-full h-full object-cover">
+      <div class="absolute bottom-4 right-4 bg-accent-500/90 text-dark-900 px-3 py-1 rounded-full text-xs font-bold">★★★★☆ 4.3/5</div>
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-white mb-2">Skoda Octavia</h3>
+      <p class="text-gray-300 text-sm mb-4">Executive sedan known for solid build, stability and refinement</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Sedan</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Petrol</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Manual/Auto</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Volkswagen Tiguan -->
+<div class="swiper-slide">
+  <div class="glass-card rounded-2xl overflow-hidden border border-dark-700 hover:border-accent-500/30 transition-all duration-300 h-full">
+    <div class="h-48 bg-gradient-to-br from-dark-700 to-dark-800 relative overflow-hidden">
+      <img src="https://source.unsplash.com/1600x900/?Volkswagen%20Tiguan,tiguan,volkswagen" alt="Volkswagen Tiguan" class="w-full h-full object-cover">
+      <div class="absolute bottom-4 right-4 bg-accent-500/90 text-dark-900 px-3 py-1 rounded-full text-xs font-bold">★★★★☆ 4.2/5</div>
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-white mb-2">Volkswagen Tiguan</h3>
+      <p class="text-gray-300 text-sm mb-4">Premium compact SUV with European handling and build quality</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">SUV</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Petrol</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Automatic</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toyota Qualis -->
+<div class="swiper-slide">
+  <div class="glass-card rounded-2xl overflow-hidden border border-dark-700 hover:border-accent-500/30 transition-all duration-300 h-full">
+    <div class="h-48 bg-gradient-to-br from-dark-700 to-dark-800 relative overflow-hidden">
+      <img src="https://source.unsplash.com/1600x900/?Toyota%20Qualis,qualis,toyota" alt="Toyota Qualis" class="w-full h-full object-cover">
+      <div class="absolute bottom-4 right-4 bg-accent-500/90 text-dark-900 px-3 py-1 rounded-full text-xs font-bold">★★★☆☆ 3.8/5</div>
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-white mb-2">Toyota Qualis</h3>
+      <p class="text-gray-300 text-sm mb-4">Classic MPV long used in India for family & commercial duties</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">MPV</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Diesel</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Manual</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Maruti Ertiga -->
+<div class="swiper-slide">
+  <div class="glass-card rounded-2xl overflow-hidden border border-dark-700 hover:border-accent-500/30 transition-all duration-300 h-full">
+    <div class="h-48 bg-gradient-to-br from-dark-700 to-dark-800 relative overflow-hidden">
+      <img src="https://source.unsplash.com/1600x900/?Maruti%20Ertiga,ertiga,maruti" alt="Maruti Ertiga" class="w-full h-full object-cover">
+      <div class="absolute bottom-4 right-4 bg-accent-500/90 text-dark-900 px-3 py-1 rounded-full text-xs font-bold">★★★★☆ 4.1/5</div>
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-white mb-2">Maruti Ertiga</h3>
+      <p class="text-gray-300 text-sm mb-4">Practical 7-seater MPV favoured by families for city & highway use</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">MPV</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Petrol</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Automatic</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Hindustan Ambassador -->
+<div class="swiper-slide">
+  <div class="glass-card rounded-2xl overflow-hidden border border-dark-700 hover:border-accent-500/30 transition-all duration-300 h-full">
+    <div class="h-48 bg-gradient-to-br from-dark-700 to-dark-800 relative overflow-hidden">
+      <img src="https://source.unsplash.com/1600x900/?Hindustan%20Ambassador,ambassador,classic%20car" alt="Hindustan Ambassador" class="w-full h-full object-cover">
+      <div class="absolute bottom-4 right-4 bg-accent-500/90 text-dark-900 px-3 py-1 rounded-full text-xs font-bold">★★★★☆ 4.0/5</div>
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-white mb-2">Hindustan Ambassador</h3>
+      <p class="text-gray-300 text-sm mb-4">Iconic Indian classic — roomy, simple and largely used as taxis/official cars</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Sedan</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Diesel</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Manual</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Maruti Alto -->
+<div class="swiper-slide">
+  <div class="glass-card rounded-2xl overflow-hidden border border-dark-700 hover:border-accent-500/30 transition-all duration-300 h-full">
+    <div class="h-48 bg-gradient-to-br from-dark-700 to-dark-800 relative overflow-hidden">
+      <img src="https://source.unsplash.com/1600x900/?Maruti%20Alto,alto,small%20car" alt="Maruti Alto" class="w-full h-full object-cover">
+      <div class="absolute bottom-4 right-4 bg-accent-500/90 text-dark-900 px-3 py-1 rounded-full text-xs font-bold">★★★☆☆ 3.9/5</div>
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-white mb-2">Maruti Alto</h3>
+      <p class="text-gray-300 text-sm mb-4">Compact city hatchback — economical and commonly seen on Indian roads</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Hatchback</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Petrol</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Manual</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Hyundai i20 -->
+<div class="swiper-slide">
+  <div class="glass-card rounded-2xl overflow-hidden border border-dark-700 hover:border-accent-500/30 transition-all duration-300 h-full">
+    <div class="h-48 bg-gradient-to-br from-dark-700 to-dark-800 relative overflow-hidden">
+      <img src="https://source.unsplash.com/1600x900/?Hyundai%20i20,i20,hyundai" alt="Hyundai i20" class="w-full h-full object-cover">
+      <div class="absolute bottom-4 right-4 bg-accent-500/90 text-dark-900 px-3 py-1 rounded-full text-xs font-bold">★★★★☆ 4.0/5</div>
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-white mb-2">Hyundai i20</h3>
+      <p class="text-gray-300 text-sm mb-4">Premium hatchback with modern features and city-friendly size</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Hatchback</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Petrol</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Automatic</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Hyundai Verna -->
+<div class="swiper-slide">
+  <div class="glass-card rounded-2xl overflow-hidden border border-dark-700 hover:border-accent-500/30 transition-all duration-300 h-full">
+    <div class="h-48 bg-gradient-to-br from-dark-700 to-dark-800 relative overflow-hidden">
+      <img src="https://source.unsplash.com/1600x900/?Hyundai%20Verna,verna,hyundai%20sedan" alt="Hyundai Verna" class="w-full h-full object-cover">
+      <div class="absolute bottom-4 right-4 bg-accent-500/90 text-dark-900 px-3 py-1 rounded-full text-xs font-bold">★★★★☆ 4.1/5</div>
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-white mb-2">Hyundai Verna</h3>
+      <p class="text-gray-300 text-sm mb-4">Comfortable mid-size sedan with modern styling & features</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Sedan</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Petrol</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Automatic</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Honda Amaze -->
+<div class="swiper-slide">
+  <div class="glass-card rounded-2xl overflow-hidden border border-dark-700 hover:border-accent-500/30 transition-all duration-300 h-full">
+    <div class="h-48 bg-gradient-to-br from-dark-700 to-dark-800 relative overflow-hidden">
+      <img src="https://source.unsplash.com/1600x900/?Honda%20Amaze,honda%20amaze,compact%20sedan" alt="Honda Amaze" class="w-full h-full object-cover">
+      <div class="absolute bottom-4 right-4 bg-accent-500/90 text-dark-900 px-3 py-1 rounded-full text-xs font-bold">★★★☆☆ 3.9/5</div>
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-white mb-2">Honda Amaze</h3>
+      <p class="text-gray-300 text-sm mb-4">Reliable compact sedan used widely for city commuting and taxis</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Sedan</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Petrol</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Manual</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Tata Nexon -->
+<div class="swiper-slide">
+  <div class="glass-card rounded-2xl overflow-hidden border border-dark-700 hover:border-accent-500/30 transition-all duration-300 h-full">
+    <div class="h-48 bg-gradient-to-br from-dark-700 to-dark-800 relative overflow-hidden">
+      <img src="https://source.unsplash.com/1600x900/?Tata%20Nexon,nexon,tata%20suv" alt="Tata Nexon" class="w-full h-full object-cover">
+      <div class="absolute bottom-4 right-4 bg-accent-500/90 text-dark-900 px-3 py-1 rounded-full text-xs font-bold">★★★★☆ 4.0/5</div>
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-white mb-2">Tata Nexon</h3>
+      <p class="text-gray-300 text-sm mb-4">Compact SUV with strong safety ratings and stylish design</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">SUV</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Petrol</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Automatic</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Mahindra XUV700 -->
+<div class="swiper-slide">
+  <div class="glass-card rounded-2xl overflow-hidden border border-dark-700 hover:border-accent-500/30 transition-all duration-300 h-full">
+    <div class="h-48 bg-gradient-to-br from-dark-700 to-dark-800 relative overflow-hidden">
+      <img src="https://source.unsplash.com/1600x900/?Mahindra%20XUV700,xuv700,mahindra" alt="Mahindra XUV700" class="w-full h-full object-cover">
+      <div class="absolute bottom-4 right-4 bg-accent-500/90 text-dark-900 px-3 py-1 rounded-full text-xs font-bold">★★★★☆ 4.2/5</div>
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-white mb-2">Mahindra XUV700</h3>
+      <p class="text-gray-300 text-sm mb-4">Tech-packed SUV with strong road presence and feature set</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">SUV</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Petrol</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Automatic</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BMW 3 Series (commonly used in India as executive car) -->
+<div class="swiper-slide">
+  <div class="glass-card rounded-2xl overflow-hidden border border-dark-700 hover:border-accent-500/30 transition-all duration-300 h-full">
+    <div class="h-48 bg-gradient-to-br from-dark-700 to-dark-800 relative overflow-hidden">
+      <img src="https://source.unsplash.com/1600x900/?BMW%203%20Series,bmw%203series,executive%20sedan" alt="BMW 3 Series" class="w-full h-full object-cover">
+      <div class="absolute bottom-4 right-4 bg-accent-500/90 text-dark-900 px-3 py-1 rounded-full text-xs font-bold">★★★★☆ 4.3/5</div>
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-white mb-2">BMW 3 Series</h3>
+      <p class="text-gray-300 text-sm mb-4">Executive sedan often used by professionals and fleet services</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Sedan</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Petrol</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Automatic</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Mercedes C-Class -->
+<div class="swiper-slide">
+  <div class="glass-card rounded-2xl overflow-hidden border border-dark-700 hover:border-accent-500/30 transition-all duration-300 h-full">
+    <div class="h-48 bg-gradient-to-br from-dark-700 to-dark-800 relative overflow-hidden">
+      <img src="https://source.unsplash.com/1600x900/?Mercedes%20C%20Class,mercedes%20cclass,luxury%20sedan" alt="Mercedes C-Class" class="w-full h-full object-cover">
+      <div class="absolute bottom-4 right-4 bg-accent-500/90 text-dark-900 px-3 py-1 rounded-full text-xs font-bold">★★★★☆ 4.2/5</div>
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-white mb-2">Mercedes C-Class</h3>
+      <p class="text-gray-300 text-sm mb-4">Popular luxury sedan in India for corporate and personal use</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Sedan</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Petrol</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Automatic</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toyota Innova (non-Crysta older Innova / common utility vehicle) -->
+<div class="swiper-slide">
+  <div class="glass-card rounded-2xl overflow-hidden border border-dark-700 hover:border-accent-500/30 transition-all duration-300 h-full">
+    <div class="h-48 bg-gradient-to-br from-dark-700 to-dark-800 relative overflow-hidden">
+      <img src="https://source.unsplash.com/1600x900/?Toyota%20Innova,innova,mpv" alt="Toyota Innova" class="w-full h-full object-cover">
+      <div class="absolute bottom-4 right-4 bg-accent-500/90 text-dark-900 px-3 py-1 rounded-full text-xs font-bold">★★★★☆ 4.1/5</div>
+    </div>
+    <div class="p-6">
+      <h3 class="text-xl font-bold text-white mb-2">Toyota Innova</h3>
+      <p class="text-gray-300 text-sm mb-4">Widely used family & taxi MPV known for reliability and space</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">MPV</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Diesel</span>
+        <span class="bg-primary-500/10 text-primary-500 text-xs px-3 py-1 rounded-full">Manual</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End of slides -->
+
+</div>
+
+            <!-- Swiper Pagination -->
+            <div class="swiper-pagination !bottom-0"></div>
+
+            <!-- Swiper Navigation -->
+            <div class="swiper-button-prev !left-2 !text-accent-500"></div>
+            <div class="swiper-button-next !right-2 !text-accent-500"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Add Swiper JS and CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+<script>
+    // Initialize Swiper
+    document.addEventListener('DOMContentLoaded', function() {
+        const swiper = new Swiper('.vehicle-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+                1280: {
+                    slidesPerView: 4,
+                }
+            }
+        });
+    });
+</script>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-dark-900 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-white animate-fade-in">
+                    Client <span class="text-gradient">Testimonials</span>
+                </h2>
+                <p class="text-gray-400 max-w-3xl mx-auto mt-6 text-lg">
+                    What executives and high-profile clients say about my services.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="glass-card p-8 rounded-2xl border border-dark-700 hover:border-accent-500/30 transition-all duration-300 animate-slide-up">
+                    <div class="flex items-center mb-6">
+                        <div class="flex items-center text-yellow-400 mr-4">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-sm text-gray-500">Confidential Client • 3 months ago</span>
+                    </div>
+                    <p class="text-gray-300 italic text-lg mb-8 leading-relaxed">
+                        "Rahul's discretion and professionalism are unmatched. He anticipates needs before they arise and handles complex logistics flawlessly. In our line of work, having a driver who understands security protocols is invaluable."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="bg-gradient-to-br from-accent-500 to-primary-500 p-1 rounded-full mr-4">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="w-14 h-14 rounded-full border-2 border-dark-800">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">Corporate Executive</h4>
+                            <p class="text-gray-500">Fortune 500 Company</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="glass-card p-8 rounded-2xl border border-dark-700 hover:border-accent-500/30 transition-all duration-300 animate-slide-up">
+                    <div class="flex items-center mb-6">
+                        <div class="flex items-center text-yellow-400 mr-4">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-sm text-gray-500">Private Client • 1 month ago</span>
+                    </div>
+                    <p class="text-gray-300 italic text-lg mb-8 leading-relaxed">
+                        "After years of working with various chauffeurs, Rahul stands out for his impeccable timing, smooth driving, and intuitive service. He maintains absolute discretion and has become an indispensable part of our family's security team."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="bg-gradient-to-br from-accent-500 to-primary-500 p-1 rounded-full mr-4">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Client" class="w-14 h-14 rounded-full border-2 border-dark-800">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">High-Net-Worth Individual</h4>
+                            <p class="text-gray-500">Private Family Office</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 bg-dark-800 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center mb-16">
+                <h2 class="section-title text-white animate-fade-in">
+                    Secure <span class="text-gradient">Contact</span>
+                </h2>
+                <p class="text-gray-400 max-w-3xl mx-auto mt-6 text-lg">
+                    All communications are encrypted and handled with strict confidentiality.
+                </p>
+            </div>
+            
+            <div class="md:flex gap-12">
+                <div class="md:w-2/5 mb-12 md:mb-0 animate-slide-up">
+                    <h3 class="text-2xl font-bold text-white mb-6 font-display">Contact Information</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="text-accent-500 text-xl mr-6 mt-1">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-1">Secure Line</h4>
+                                <p class="text-gray-400">+91 ••••• •••••</p>
+                                <p class="text-gray-500 text-sm mt-2">Available upon verified request</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-accent-500 text-xl mr-6 mt-1">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-1">Encrypted Email</h4>
+                                <p class="text-gray-400">secure@rahulsharma.driver</p>
+                                <p class="text-gray-500 text-sm mt-2">PGP key available</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-accent-500 text-xl mr-6 mt-1">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-1">Operational Bases</h4>
+                                <p class="text-gray-400">Mumbai • Delhi • Dubai • London</p>
+                                <p class="text-gray-500 text-sm mt-2">Additional locations by arrangement</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12">
+                        <h4 class="font-bold text-white mb-4">Security Protocols</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1 mr-4 text-accent-500">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <p class="text-gray-400">All communications are encrypted end-to-end</p>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1 mr-4 text-accent-500">
+                                    <i class="fas fa-user-secret"></i>
+                                </div>
+                                <p class="text-gray-400">Client identities protected under NDA</p>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 mt-1 mr-4 text-accent-500">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <p class="text-gray-400">24-hour response time guaranteed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-3/5 animate-slide-up">
+                    <form class="glass-card p-8 rounded-2xl border border-dark-700">
+                        <h3 class="text-2xl font-bold text-white mb-6 font-display">Secure Message</h3>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="name" class="block text-gray-400 font-medium mb-2">Your Name*</label>
+                                <input type="text" id="name" class="w-full px-5 py-3 bg-dark-700 border border-dark-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-500 text-white placeholder-gray-500 transition">
+                            </div>
+                            
+                            <div>
+                                <label for="company" class="block text-gray-400 font-medium mb-2">Organization</label>
+                                <input type="text" id="company" class="w-full px-5 py-3 bg-dark-700 border border-dark-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-500 text-white placeholder-gray-500 transition">
+                            </div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="email" class="block text-gray-400 font-medium mb-2">Email*</label>
+                                <input type="email" id="email" class="w-full px-5 py-3 bg-dark-700 border border-dark-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-500 text-white placeholder-gray-500 transition">
+                            </div>
+                            
+                            <div>
+                                <label for="phone" class="block text-gray-400 font-medium mb-2">Phone</label>
+                                <input type="tel" id="phone" class="w-full px-5 py-3 bg-dark-700 border border-dark-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-500 text-white placeholder-gray-500 transition">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="service" class="block text-gray-400 font-medium mb-2">Service Required*</label>
+                            <select id="service" class="w-full px-5 py-3 bg-dark-700 border border-dark-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-500 text-white appearance-none">
+                                <option value="">Select service type</option>
+                                <option value="executive">Executive Protection</option>
+                                <option value="airport">Airport Transfers</option>
+                                <option value="event">Event Transportation</option>
+                                <option value="longterm">Long-Term Assignment</option>
+                                <option value="other">Other Requirement</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-8">
+                            <label for="message" class="block text-gray-400 font-medium mb-2">Secure Message*</label>
+                            <textarea id="message" rows="5" class="w-full px-5 py-3 bg-dark-700 border border-dark-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-500 text-white placeholder-gray-500 transition"></textarea>
+                        </div>
+                        
+                        <div class="flex items-center mb-6">
+                            <input type="checkbox" id="nda" class="w-5 h-5 bg-dark-700 border-dark-600 rounded focus:ring-accent-500 text-accent-500">
+                            <label for="nda" class="ml-3 text-gray-400 text-sm">I understand this is a confidential communication</label>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-gradient-to-r from-accent-500 to-primary-500 text-dark-900 font-bold py-4 rounded-lg hover:shadow-lg hover:shadow-accent-500/20 transition-all duration-300">
+                            Send Encrypted Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 text-gray-400 py-12 border-t border-dark-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <h3 class="text-xl font-bold text-gradient font-display mb-6">RAHUL SHARMA</h3>
+                    <p class="mb-6">Professional chauffeur and executive protection driver serving high-profile clients worldwide.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center hover:bg-accent-500 hover:text-dark-900 transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center hover:bg-accent-500 hover:text-dark-900 transition">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center hover:bg-accent-500 hover:text-dark-900 transition">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-6">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-accent-500 transition">Executive Protection</a></li>
+                        <li><a href="#" class="hover:text-accent-500 transition">Airport Transfers</a></li>
+                        <li><a href="#" class="hover:text-accent-500 transition">Corporate Events</a></li>
+                        <li><a href="#" class="hover:text-accent-500 transition">Long-Term Assignments</a></li>
+                        <li><a href="#" class="hover:text-accent-500 transition">Special Occasions</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-6">Resources</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-accent-500 transition">Security Certifications</a></li>
+                        <li><a href="#" class="hover:text-accent-500 transition">Vehicle Fleet</a></li>
+                        <li><a href="#" class="hover:text-accent-500 transition">Service Areas</a></li>
+                        <li><a href="#" class="hover:text-accent-500 transition">Client Testimonials</a></li>
+                        <li><a href="#" class="hover:text-accent-500 transition">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-6">Legal</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-accent-500 transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-accent-500 transition">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-accent-500 transition">NDA Agreement</a></li>
+                        <li><a href="#" class="hover:text-accent-500 transition">Insurance Coverage</a></li>
+                        <li><a href="#" class="hover:text-accent-500 transition">Licenses</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-16 pt-8 border-t border-dark-800 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm">© 2023 Rahul Sharma Executive Services. All rights reserved.</p>
+                
+                <div class="mt-4 md:mt-0">
+                    <p class="text-gray-500 text-sm">Designed for discretion and security</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animation trigger on scroll with Intersection Observer
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.animate-fade-in, .animate-slide-up');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100');
+                        if (entry.target.classList.contains('animate-slide-up')) {
+                            entry.target.classList.add('translate-y-0');
+                        }
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            });
+            
+            animateElements.forEach(element => {
+                element.classList.add('opacity-0');
+                if (element.classList.contains('animate-slide-up')) {
+                    element.classList.add('translate-y-10');
+                }
+                observer.observe(element);
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Mobile menu toggle
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const mobileMenu = document.createElement('div');
+            mobileMenu.className = 'fixed inset-0 bg-dark-900/95 backdrop-blur-md z-50 flex flex-col items-center justify-center hidden';
+            mobileMenu.innerHTML = `
+                <button class="absolute top-6 right-6 text-gray-400 hover:text-white transition">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <div class="flex flex-col items-center space-y-8">
+                    <a href="#home" class="text-2xl text-white hover:text-accent-500 transition">Home</a>
+                    <a href="#about" class="text-2xl text-white hover:text-accent-500 transition">About</a>
+                    <a href="#experience" class="text-2xl text-white hover:text-accent-500 transition">Experience</a>
+                    <a href="#skills" class="text-2xl text-white hover:text-accent-500 transition">Skills</a>
+                    <a href="#contact" class="text-2xl text-white hover:text-accent-500 transition">Contact</a>
+                </div>
+            `;
+            document.body.appendChild(mobileMenu);
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            mobileMenu.querySelector('button').addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
+
+<!-- Sticky WhatsApp Button with Custom Message -->
+<div class="fixed bottom-6 right-6 z-50 animate-bounce hover:animate-none">
+    <a href="https://wa.me/918157953586?text=Hi%20Rahul%2C%20I%20saw%20your%20driver%20profile%20and%20would%20like%20to%20discuss%20your%20services" 
+       target="_blank" rel="noopener noreferrer"
+       class="flex items-center justify-center w-16 h-16 rounded-full bg-[#25D366] text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group">
+        <i class="fab fa-whatsapp text-3xl"></i>
+        <span class="sr-only">Chat on WhatsApp</span>
+        
+        <!-- Notification Badge -->
+        <div class="absolute -right-2 -top-2 flex items-center justify-center w-6 h-6 bg-red-500 rounded-full text-xs font-bold text-white animate-pulse">
+            <span>!</span>
+        </div>
+        
+        <!-- Hover Tooltip -->
+        <div class="absolute right-20 bottom-0 bg-dark-800 text-white px-4 py-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+            Contact me for bookings
+            <div class="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-dark-800 rotate-45"></div>
+        </div>
+    </a>
+</div>
+
+<!-- <div class="fixed bottom-6 right-6 z-50 group">
+    <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" 
+       class="flex items-center justify-center w-16 h-16 rounded-full bg-[#25D366] text-white shadow-lg hover:shadow-xl transition-all duration-300">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+    <div class="absolute right-20 bottom-0 bg-dark-700 text-white px-4 py-2 rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+        Chat with me on WhatsApp
+        <div class="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-dark-700 rotate-45"></div>
+    </div>
+</div> -->
+
+</body>
+</html>
